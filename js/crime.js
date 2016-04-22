@@ -56,6 +56,9 @@ function create_url(latitude, longitude) {
   var start_date = create_date();
   var end_date = create_date( oneWeekAgo );
   
+  console.log("Start Date: " + start_date);
+  console.log("End Date: " + end_date);
+  
   //var api_url = "https://jgentes-Crime-Data-v1.p.mashape.com/crime?enddate=4%2F25%2F2015&lat=42.343060293817736&long=-83.0579091956167&startdate=4%2F19%2F2015";
   var api_url = "https://jgentes-Crime-Data-v1.p.mashape.com/crime?enddate=" + end_date + "&lat=" + latitude + "&long=" + longitude + "&startdate=" + start_date;
   return api_url;
