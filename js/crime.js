@@ -42,7 +42,7 @@ function create_date( currdate )
     var yyyy = today.getFullYear();
     
     if (! currdate )
-        var currdate = mm + "/" + dd + "/" + yyyy;
+        var currdate = today;
     
     var encoded_date = encodeURIComponent(currdate);
     
