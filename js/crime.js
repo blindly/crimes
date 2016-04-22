@@ -41,9 +41,8 @@ function create_date( currdate )
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
     
-    //var currdate = mm + "/" + dd + "/" + yyyy;
-    
-    //var currdate = "4/19/2015";
+    if (! currdate )
+        var currdate = mm + "/" + dd + "/" + yyyy;
     
     var encoded_date = encodeURIComponent(currdate);
     
@@ -51,8 +50,11 @@ function create_date( currdate )
 }
 
 function create_url(latitude, longitude) {
-  var start_date = create_date("4/19/2015");
-  var end_date = create_date("4/23/2015");
+  var oneWeekAgo = new Date();
+  oneWeekAgo = oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+  
+  var start_date = create_date();
+  var end_date = create_date( oneWeekAgo );
   
   //var api_url = "https://jgentes-Crime-Data-v1.p.mashape.com/crime?enddate=4%2F25%2F2015&lat=42.343060293817736&long=-83.0579091956167&startdate=4%2F19%2F2015";
   var api_url = "https://jgentes-Crime-Data-v1.p.mashape.com/crime?enddate=" + end_date + "&lat=" + latitude + "&long=" + longitude + "&startdate=" + start_date;
